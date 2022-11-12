@@ -78,7 +78,7 @@ const ProductsFire = () => {
             <p>{product.description}</p>
             <p>{product.id}</p>
             <Button onClick={() => confirmDeleteProduct(product.id)} variant="danger">Delete Products</Button>
-            <Link to="/UpdateProductsFire">
+            <Link to={`/UpdateProductsFire/${product.id}`}>
               <Button>Update Products</Button>
             </Link>
           </div>
