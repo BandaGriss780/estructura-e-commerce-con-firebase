@@ -12,9 +12,8 @@ const MySwal = withReactContent(Swal)
 
 const CreateProductsFire = () => {
   const [product, setProducts] = useState({
-    title: "",
-    description: "",
-    stock: 0
+    Titulo: "",
+    Precio: 0,
   })
   //Sin refactor
   // const [title, setTitle] = useState("");
@@ -64,25 +63,17 @@ const CreateProductsFire = () => {
       <form onSubmit={addProduct}>
         <input
           type="text"
-          name="title"
-          placeholder="Title"
-          value={product.title}
+          name="Titulo"
+          placeholder="Titulo"
+          value={product.Titulo}
           //onChange={(e) => setTitle(e.target.value)}
           onChange={handleChange}
         />
         <input
-          type="text"
-          name="description"
-          placeholder="Description"
-          value={product.description}
-          //onChange={(e) => setDescription(e.target.value)}
-          onChange={handleChange}
-        />
-        <input
           type="number"
-          name="stock"
-          placeholder="stock"
-          value={product.stock}
+          name="Precio"
+          placeholder="Precio"
+          value={product.Precio}
           //onChange={(e) => setStock(e.target.value)}
           onChange={handleChange}
         />

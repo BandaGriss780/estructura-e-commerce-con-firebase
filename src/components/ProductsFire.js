@@ -74,9 +74,9 @@ const ProductsFire = () => {
       {products.map((product) => {
         return (
           <div key={product.id}>
-            <h2>{product.title}</h2>
-            <p>{product.description}</p>
-            <p>{product.id}</p>
+            <h2>{product.Titulo}</h2>
+            <p>{product.Precio}</p>
+            <img src={product.Img} />
             <Button onClick={() => confirmDeleteProduct(product.id)} variant="danger">Delete Products</Button>
             <Link to={`/UpdateProductsFire/${product.id}`}>
               <Button>Update Products</Button>

@@ -7,9 +7,8 @@ import { getDoc, doc, updateDoc } from "firebase/firestore";
 
 
 const UpdateProductsFire = () => {
-  const [title, setTitle] = useState("");
-  const [stock, setStock] = useState(0);
-  const [description, setDescription] = useState("");
+  const [Titulo, setTitulo] = useState("");
+  const [Precio, setPrecio] = useState(0);
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -20,9 +19,8 @@ const UpdateProductsFire = () => {
     const productSnap = await getDoc(productRef);
     console.log(productSnap);
     if (productSnap.exists()) {
-      setDescription(productSnap.data().description);
-      setStock(productSnap.data().stock);
-      setTitle(productSnap.data().title);
+      setPrecio(productSnap.data().Precio);
+      setTitulo(productSnap.data().Titulo);
     } else {
       alert("No such document!");
       navigate("/productsfire");
@@ -33,9 +31,8 @@ const UpdateProductsFire = () => {
     e.preventDefault();
     const productRef = doc(db, "Products", id);
     const newData = {
-      title,
-      stock,
-      description,
+      Titulo,
+      Precio,
     };
     try {
       await updateDoc(productRef, newData);
@@ -55,23 +52,16 @@ const UpdateProductsFire = () => {
       <form onSubmit={editProduct} >
         <input
           type="text"
-          name="title"
+          name="Titulo"
           placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={Titulo}
+          onChange={(e) => setTitulo(e.target.value)}
         />
         <input
           type="number"
-          name="stock"
-          value={stock}
-          onChange={(e) => setStock(e.target.value)}
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          name="Precio"
+          value={Precio}
+          onChange={(e) => setPrecio(e.target.value)}
         />
         <Button type="submit">Update Product</Button>
       </form>
